@@ -2,7 +2,8 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent" android:layout_height="fill_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_margin="15dp">
 
     <TextView
         android:layout_width="wrap_content"
@@ -13,7 +14,7 @@
     <EditText
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/task_name_editText"
+        android:id="@+id/_task_name_editText"
         android:imeOptions="actionDone"
         />
     <TextView
@@ -24,7 +25,7 @@
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar"
+        android:id="@+id/_seekBar"
         android:layout_gravity="center_horizontal" />
     <TextView
         android:layout_width="wrap_content"
@@ -34,7 +35,7 @@
     <SeekBar
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/seekBar2"
+        android:id="@+id/_seekBar2"
         android:layout_gravity="center_horizontal" />
     <TextView
         android:layout_width="wrap_content"
@@ -44,14 +45,26 @@
     <Spinner
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/spinner"
+        android:id="@+id/_spinner"
         android:layout_gravity="center_horizontal" />
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Add Task " android:id="@+id/add_task_button"
-        android:layout_gravity="center_horizontal" />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Save changes " android:id="@+id/_add_task_button"
+          />
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Delete Task" android:id="@+id/_delete_button"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true" />
+    </RelativeLayout>
+
 
 
 </LinearLayout>

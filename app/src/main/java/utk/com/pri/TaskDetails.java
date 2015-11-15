@@ -1,9 +1,15 @@
 package utk.com.pri;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
+import android.util.Log;
+import android.view.KeyEvent;
 import android.view.View;
+import android.view.inputmethod.EditorInfo;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -19,6 +25,13 @@ public class TaskDetails extends Activity {
     int imp;
     int diff;
     int timeRange;
+
+    @Nullable
+    @Override
+    public View onCreatePanelView(int featureId) {
+        return super.onCreatePanelView(featureId);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +60,7 @@ public class TaskDetails extends Activity {
 
                 public void onProgressChanged(SeekBar seekBar, int progresValue, boolean fromUser) {
                     imp = progresValue;
+                    Log.e("dfd", imp+"");
                 }
 
                 public void onStartTrackingTouch(SeekBar seekBar) {
@@ -69,7 +83,7 @@ public class TaskDetails extends Activity {
         });
 
 
-        final Button addNewButton = (Button) findViewById(R.id.add_new_button);
+        final Button addNewButton = (Button) findViewById(R.id.add_task_button);
         addNewButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -77,9 +91,16 @@ public class TaskDetails extends Activity {
                 i.putExtra("name", taskNameBox.getText().toString());
                 i.putExtra("diff", diff);
                 i.putExtra("imp", imp);
-                i.putExtra("timrRange", timeRange);
+                i.putExtra("timeRange", timeRange);
                 startActivity(i);
             }
+
+            @Override
+            protected Object clone() throws CloneNotSupportedException {
+                return super.clone();
+            }
         });
+
+
     }
 }
