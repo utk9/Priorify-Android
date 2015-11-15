@@ -15,6 +15,8 @@ import android.widget.SeekBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
+import java.util.Date;
+
 /**
  * Created by utk on 15-11-15.
  */
@@ -39,7 +41,7 @@ public class TaskList extends Activity {
         else {
             Intent i = getIntent();
             DataClass.taskList.add (new Task (i.getStringExtra("name"),
-                    i.getIntExtra("imp", 0), i.getIntExtra("diff", 0), i.getIntExtra("timeRange", 0),
+                    i.getIntExtra("imp", 0), i.getIntExtra("diff", 0), i.getIntExtra("timeRange", 0)- 1,
                     i.getStringExtra("dueDate")));
             DataClass.namesList.add(i.getStringExtra("name"));
             i.removeExtra("imp");
@@ -60,7 +62,7 @@ public class TaskList extends Activity {
                 dialog.setContentView(R.layout.dialog_layout);
 
 
-                Spinner spinner = (Spinner) dialog.findViewById(R.id._spinner);
+                final Spinner spinner = (Spinner) dialog.findViewById(R.id._spinner);
                 ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getApplicationContext(),
                         R.array.category_array, R.layout.spinner_item_layout);
                 adapter.setDropDownViewResource(R.layout.spinner_item_layout);
@@ -96,9 +98,11 @@ public class TaskList extends Activity {
                         DataClass.taskList.get(position).setName(name.getText().toString());
                         DataClass.taskList.get(position).setImp(sk1.getProgress());
                         DataClass.taskList.get(position).setDifficulty(sk2.getProgress());
-                        DataClass.taskList.get(position).setTimeRange(position);
+                        DataClass.taskList.get(position).setTimeRange(spinner.getSelectedItemPosition());
                         DataClass.taskList.get(position).setDueDate(dueDate.getText().toString());
+                        DataClass.namesList.set(position, name.getText().toString());
                         dialog.dismiss();
+                        recreate();
                     }
                 });
 
@@ -117,6 +121,15 @@ public class TaskList extends Activity {
                 dialog.show();
             }
         });
+        Button priorifyButton = (Button) findViewById(R.id.priorify_buton);
+        priorifyButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(getApplicationContext(), PriorifiedActivity.class);
+                startActivity(i);
+            }
+        });
+
 
     }
 
