@@ -1,5 +1,5 @@
 package utk.com.pri;
-
+import java.util.Calendar;
 /**
  * Created by utk on 15-11-14.
  */
@@ -8,6 +8,7 @@ public class Task {
     private int imp;
     private int difficulty;
     private int timeRange;
+    //private Calendar date;
 
     public int getTimeRange() {
         return timeRange;
