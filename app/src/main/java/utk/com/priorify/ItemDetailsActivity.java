@@ -37,12 +37,10 @@ public class ItemDetailsActivity extends Activity {
                 if (s.equals("Academic")) {
                     getFragmentManager().beginTransaction().
                             replace(R.id.fragment, new DependentDetailsFragment()).commit();
-                    Log.e("aaa", "academic selected");
                 } else {
                     if (s.equals("Side Project")){
                         getFragmentManager().beginTransaction().
                                 replace(R.id.fragment, new DependentDetailsFragment2()).commit();
-                        Log.e("aaa", "side project selected");
                     }
                 }
             }
