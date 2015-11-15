@@ -39,12 +39,14 @@ public class TaskList extends Activity {
         else {
             Intent i = getIntent();
             DataClass.taskList.add (new Task (i.getStringExtra("name"),
-                    i.getIntExtra("imp", 0), i.getIntExtra("diff", 0), i.getIntExtra("timeRange", 0)));
+                    i.getIntExtra("imp", 0), i.getIntExtra("diff", 0), i.getIntExtra("timeRange", 0),
+                    i.getStringExtra("dueDate")));
             DataClass.namesList.add(i.getStringExtra("name"));
             i.removeExtra("imp");
             i.removeExtra("diff");
             i.removeExtra("name");
             i.removeExtra("timeRange");
+            i.removeExtra("dueDate");
         }
         ListView list = (ListView) findViewById(R.id.list);
         ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,
@@ -78,6 +80,9 @@ public class TaskList extends Activity {
                 final EditText name = (EditText) dialog.findViewById(R.id._task_name_editText);
                 name.setText(DataClass.taskList.get(position).getName());
 
+                final EditText dueDate = (EditText) dialog.findViewById(R.id._due_date_editText);
+                dueDate.setText(DataClass.taskList.get(position).getDueDate());
+
                 final SeekBar sk1 = (SeekBar) dialog.findViewById(R.id._seekBar);
                 sk1.setProgress(DataClass.taskList.get(position).getImp());
 
@@ -92,6 +97,7 @@ public class TaskList extends Activity {
                         DataClass.taskList.get(position).setImp(sk1.getProgress());
                         DataClass.taskList.get(position).setDifficulty(sk2.getProgress());
                         DataClass.taskList.get(position).setTimeRange(position);
+                        DataClass.taskList.get(position).setDueDate(dueDate.getText().toString());
                         dialog.dismiss();
                     }
                 });

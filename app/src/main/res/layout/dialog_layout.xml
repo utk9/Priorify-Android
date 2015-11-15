@@ -37,9 +37,29 @@
         android:id="@+id/_seekBar"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginRight="10dp"
         />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Due Date (mm/dd/yyyy)"
+        android:layout_marginTop="20dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
+    <EditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/_due_date_editText"
+        android:imeOptions="actionDone"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="10dp"
+        android:layout_marginLeft="10dp"
+        />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -55,7 +75,7 @@
         android:id="@+id/_seekBar2"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="10dp"
-        android:layout_marginLeft="10dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginRight="10dp"
         />
     <TextView
@@ -83,12 +103,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="5dp"
             android:text="Save changes " android:id="@+id/_add_task_button"
           />
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="5dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="5dp"
             android:text="Delete Task" android:id="@+id/_delete_button"
             android:layout_alignParentTop="true"
             android:layout_alignParentRight="true"

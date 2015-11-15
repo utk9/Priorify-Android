@@ -54,6 +54,8 @@ public class TaskDetails extends Activity {
 
             final EditText taskNameBox = (EditText) findViewById(R.id.task_name_editText);
 
+        final EditText dueDateBox = (EditText) findViewById(R.id.due_date_editText);
+
             final SeekBar impSeekBar = (SeekBar) findViewById(R.id.seekBar);
 
             impSeekBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
@@ -92,6 +94,7 @@ public class TaskDetails extends Activity {
                 i.putExtra("diff", diff);
                 i.putExtra("imp", imp);
                 i.putExtra("timeRange", timeRange);
+                i.putExtra("dueDate", dueDateBox.getText().toString());
                 startActivity(i);
             }
 

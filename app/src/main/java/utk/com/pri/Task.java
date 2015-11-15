@@ -8,7 +8,7 @@ public class Task {
     private int imp;
     private int difficulty;
     private int timeRange;
-    //private Calendar date;
+    private String dueDate;
 
     public int getTimeRange() {
         return timeRange;
@@ -18,12 +18,13 @@ public class Task {
         this.timeRange = timeRange;
     }
 
-    public Task(String name, int imp, int difficulty, int timeRange){
+    public Task(String name, int imp, int difficulty, int timeRange, String dueDate){
         this.name = name;
 
         this.imp = imp;
         this.difficulty = difficulty;
         this.timeRange = timeRange;
+        this.dueDate = dueDate;
     }
 
 
@@ -41,6 +42,14 @@ public class Task {
 
     public void setImp(int imp) {
         this.imp = imp;
+    }
+
+    public String getDueDate() {
+        return dueDate;
+    }
+
+    public void setDueDate(String dueDate) {
+        this.dueDate = dueDate;
     }
 
     public int getDifficulty() {
