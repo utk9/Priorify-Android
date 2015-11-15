@@ -5,6 +5,9 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 
@@ -24,11 +27,35 @@ public class ItemDetailsActivity extends Activity {
 // Apply the adapter to the spinner
         spinner.setAdapter(adapter);
 
-        if (savedInstanceState == null) {
-            getFragmentManager()
-                    .beginTransaction()
-                    .add(R.id.parent, new DependentDetailsFragment())
-                    .commit();
-        }
+        getFragmentManager()
+                  .beginTransaction().add(R.id.fragment, new DependentDetailsFragment()).commit();
+
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            public void onItemSelected(AdapterView<?> parent, View view, int pos, long id) {
+                Object item = parent.getItemAtPosition(pos);
+                String s = (String) item;
+                if (s.equals("Academic")) {
+                    getFragmentManager().beginTransaction().
+                            replace(R.id.fragment, new DependentDetailsFragment()).commit();
+                    Log.e("aaa", "academic selected");
+                } else {
+                    if (s.equals("Side Project")){
+                        getFragmentManager().beginTransaction().
+                                replace(R.id.fragment, new DependentDetailsFragment2()).commit();
+                        Log.e("aaa", "side project selected");
+                    }
+                }
+            }
+
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+//        if (savedInstanceState == null) {
+//            getFragmentManager()
+//                    .beginTransaction()
+//                    .add(R.id.fragment, new DependentDetailsFragment())
+//                    .commit();
+//        }
     }
 }

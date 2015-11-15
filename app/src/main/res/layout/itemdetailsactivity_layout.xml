@@ -24,11 +24,11 @@
         android:id="@+id/categorySpinner"
         android:layout_gravity="center_horizontal" />
 
-    <fragment
+    <FrameLayout
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:name="utk.com.priorify.DependentDetailsFragment"
-        />
+        android:id="@+id/fragment" />
+       <!-- android:name="utk.com.priorify.DependentDetailsFragment"-->
 
 
 </LinearLayout>
