@@ -32,7 +32,6 @@
         android:layout_height="wrap_content"
         android:text="@string/pick_date"
         android:onClick="showDatePickerDialog" />-->
-    <Pi
 
     <TextView
         android:layout_width="fill_parent"
